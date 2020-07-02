@@ -10,7 +10,7 @@ func TestCommit(t *testing.T) {
 	o1.Populate("07032020")
 	defer os.Remove("Orders_07032020.json")
 
-	orderNumber := 100
+	orderNumber := 1
 	customerName := "Wise"
 	state := "OH"
 	productType := "Wood"
@@ -34,7 +34,7 @@ func TestCommit(t *testing.T) {
 
 	o2.Populate("07032020")
 
-	foundOrder := o1.Orders[0]
+	foundOrder := o2.Orders[0]
 	if foundOrder.OrderNumber != orderNumber {
 		t.Errorf("Got OrderNumber %d but expected %d", foundOrder.OrderNumber, orderNumber)
 	}

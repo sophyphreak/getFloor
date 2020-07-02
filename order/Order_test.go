@@ -73,3 +73,14 @@ func TestPopulateOrders(t *testing.T) {
 	}
 	os.Remove(filename)
 }
+
+func TestFindOrderIndex(t *testing.T) {
+	var o Orders
+	o.Populate("07032020")
+
+	indx := o.findOrderIndex(1)
+
+	if indx == -1 {
+		t.Errorf("Got indx -1, but expected 1")
+	}
+}
