@@ -1,13 +1,14 @@
 package order
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
-func TestAddOrder(t *testing.T) {
-	var o Orders
-	var taxes Taxes
-	var p Products
-	taxes.Populate()
-	p.Populate()
+func TestCommit(t *testing.T) {
+	var o1, o2 Orders
+	o1.Populate("07032020")
+	defer os.Remove("Orders_07032020.json")
 
 	orderNumber := 100
 	customerName := "Wise"
@@ -23,11 +24,17 @@ func TestAddOrder(t *testing.T) {
 	tax := ((materialCost + laborCost) * (taxRate / 100))
 	total := (materialCost + laborCost + tax)
 
-	order := Order{orderNumber, customerName, state, 0, productType, area, 0, 0, 0, 0, 0, 0}
+	order := Order{orderNumber, customerName, state, taxRate, productType, area, costPerSquareFoot, laborCostPerSquareFoot, materialCost, laborCost, tax, total}
+	o1.Orders = append(o1.Orders, order)
 
-	o.AddOrder(order, &taxes, &p)
+	err := o1.Commit()
+	if err != nil {
+		t.Errorf("Expected no error when committing, but received one anyway.")
+	}
 
-	foundOrder := o.Orders[0]
+	o2.Populate("07032020")
+
+	foundOrder := o1.Orders[0]
 	if foundOrder.OrderNumber != orderNumber {
 		t.Errorf("Got OrderNumber %d but expected %d", foundOrder.OrderNumber, orderNumber)
 	}

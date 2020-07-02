@@ -1,0 +1,11 @@
+{
+    "products": [{
+        "productType": "Tile",
+        "costPerSquareFoot": 3.50,
+        "laborCostPerSquareFoot": 4.15
+    }, {
+        "productType": "Wood",
+        "costPerSquareFoot": 5.15,
+        "laborCostPerSquareFoot": 4.75
+    }]
+}

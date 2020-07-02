@@ -1,15 +1,18 @@
 package order
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
-func TestAddOrder(t *testing.T) {
+// Orders_MMDDYYYY.json
+
+func TestPopulateOrders(t *testing.T) {
 	var o Orders
-	var taxes Taxes
-	var p Products
-	taxes.Populate()
-	p.Populate()
+	date := "11112020"
+	o.Populate(date)
 
-	orderNumber := 100
+	orderNumber := 1
 	customerName := "Wise"
 	state := "OH"
 	productType := "Wood"
@@ -20,14 +23,11 @@ func TestAddOrder(t *testing.T) {
 	costPerSquareFoot := 5.15
 	materialCost := area * costPerSquareFoot
 	laborCost := area * laborCostPerSquareFoot
-	tax := ((materialCost + laborCost) * (taxRate / 100))
-	total := (materialCost + laborCost + tax)
-
-	order := Order{orderNumber, customerName, state, 0, productType, area, 0, 0, 0, 0, 0, 0}
-
-	o.AddOrder(order, &taxes, &p)
+	tax := 61.88
+	total := 1051.88
 
 	foundOrder := o.Orders[0]
+
 	if foundOrder.OrderNumber != orderNumber {
 		t.Errorf("Got OrderNumber %d but expected %d", foundOrder.OrderNumber, orderNumber)
 	}
@@ -64,4 +64,12 @@ func TestAddOrder(t *testing.T) {
 	if foundOrder.Total != total {
 		t.Errorf("Got Total %f but expected %f", foundOrder.Total, total)
 	}
+
+	date = "12122020"
+	o.Populate(date)
+	filename := "Orders_" + date + ".json"
+	if _, err := os.Stat(filename); os.IsNotExist(err) {
+		t.Errorf("File %s was not created", filename)
+	}
+	os.Remove(filename)
 }

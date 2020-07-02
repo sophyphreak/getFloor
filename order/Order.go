@@ -1,8 +1,15 @@
 package order
 
+import (
+	"encoding/json"
+	"io/ioutil"
+	"os"
+)
+
 // Orders is the orders
 type Orders struct {
 	Orders []Order `json:"orders"`
+	Date   string
 }
 
 // Order is an order
@@ -19,4 +26,21 @@ type Order struct {
 	LaborCost              float64 `json:"laborCost"`
 	Tax                    float64 `json:"tax"`
 	Total                  float64 `json:"total"`
+}
+
+// Populate populates
+func (o *Orders) Populate(date string) {
+	o.Date = date
+	filename := "Orders_" + date + ".json"
+	if _, err := os.Stat(filename); os.IsNotExist(err) {
+		os.Create(filename)
+	}
+	jsonFile, err := os.Open(filename)
+	check(err)
+	defer jsonFile.Close()
+
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	check(err)
+
+	json.Unmarshal(byteValue, o)
 }

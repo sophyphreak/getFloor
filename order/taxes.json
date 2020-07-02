@@ -1,0 +1,7 @@
+{
+    "taxes": [{
+        "stateAbbreviation": "OH",
+        "stateName": "Ohio",
+        "taxRate": 6.25
+    }]
+}
