@@ -1,0 +1,20 @@
+{
+	"orders": [
+		{
+			"orderNumber": 1,
+			"customerName": "Wise",
+			"state": "OH",
+			"taxRate": 6.25,
+			"productType": "Wood",
+			"area": 100,
+			"costPerSquareFoot": 5.15,
+			"laborCostPerSquareFoot": 4.75,
+			"materialCost": 515,
+			"laborCost": 475,
+			"tax": 61.875,
+			"total": 1051.875
+		}
+	],
+	"Date": "",
+	"MaxOrderNumber": 1
+}

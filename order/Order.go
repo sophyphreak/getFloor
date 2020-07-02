@@ -8,8 +8,9 @@ import (
 
 // Orders is the orders
 type Orders struct {
-	Orders []Order `json:"orders"`
-	Date   string
+	Orders         []Order `json:"orders"`
+	Date           string
+	MaxOrderNumber int
 }
 
 // Order is an order
@@ -43,4 +44,12 @@ func (o *Orders) Populate(date string) {
 	check(err)
 
 	json.Unmarshal(byteValue, o)
+
+	max := 0
+	for _, v := range o.Orders {
+		if v.OrderNumber > max {
+			max = v.OrderNumber
+		}
+	}
+	o.MaxOrderNumber = max
 }

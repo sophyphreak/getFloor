@@ -9,7 +9,7 @@ func TestAddOrder(t *testing.T) {
 	taxes.Populate()
 	p.Populate()
 
-	orderNumber := 100
+	orderNumber := 1
 	customerName := "Wise"
 	state := "OH"
 	productType := "Wood"
@@ -23,7 +23,7 @@ func TestAddOrder(t *testing.T) {
 	tax := ((materialCost + laborCost) * (taxRate / 100))
 	total := (materialCost + laborCost + tax)
 
-	order := Order{orderNumber, customerName, state, 0, productType, area, 0, 0, 0, 0, 0, 0}
+	order := Order{0, customerName, state, 0, productType, area, 0, 0, 0, 0, 0, 0}
 
 	o.AddOrder(order, &taxes, &p)
 
