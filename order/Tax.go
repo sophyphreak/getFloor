@@ -30,7 +30,7 @@ func (t *Taxes) Populate() {
 	json.Unmarshal(byteValue, t)
 }
 
-func (t *Taxes) getTaxRate(s string) float64 {
+func (t *Taxes) GetTaxRate(s string) float64 {
 	for _, tax := range t.Taxes {
 		if tax.StateAbbreviation == s {
 			return tax.TaxRate

@@ -1,13 +1,12 @@
 package order
 
-
 import (
 	"fmt"
 )
 
-func(o *Orders) EditOrder(orderNum int, newName, newState, newType string, newArea float64, t *Taxes, p *Products) error {
-	
-	foundIndex := o.findOrderIndex(orderNum)
+func (o *Orders) EditOrder(orderNum int, newName, newState, newType string, newArea float64, t *Taxes, p *Products) error {
+
+	foundIndex := o.FindOrderIndex(orderNum)
 
 	if foundIndex == -1 {
 		return fmt.Errorf("Order number %d not found!", orderNum)
@@ -19,10 +18,10 @@ func(o *Orders) EditOrder(orderNum int, newName, newState, newType string, newAr
 		foundOrder.CustomerName = newName
 	}
 
-	if newState != "" || newType != "" || newArea != 0{
+	if newState != "" || newType != "" || newArea != 0 {
 		if newState != "" {
 			foundOrder.State = newState
-			foundOrder.TaxRate = t.getTaxRate(newState)
+			foundOrder.TaxRate = t.GetTaxRate(newState)
 		}
 		if newType != "" {
 			foundOrder.ProductType = newType
@@ -31,7 +30,7 @@ func(o *Orders) EditOrder(orderNum int, newName, newState, newType string, newAr
 			foundOrder.Area = newArea
 		}
 
-		cost, laborCost := p.getProductData(foundOrder.ProductType)
+		cost, laborCost := p.GetProductData(foundOrder.ProductType)
 		foundOrder.CostPerSquareFoot = cost
 		foundOrder.LaborCostPerSquareFoot = laborCost
 		foundOrder.MaterialCost = foundOrder.Area * foundOrder.CostPerSquareFoot

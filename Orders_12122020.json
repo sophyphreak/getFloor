@@ -1,0 +1,34 @@
+{
+	"orders": [
+		{
+			"orderNumber": 1,
+			"customerName": "alskdfjsdlfaj",
+			"state": "OH",
+			"taxRate": 6.25,
+			"productType": "Tile",
+			"area": 294453405,
+			"costPerSquareFoot": 3.5,
+			"laborCostPerSquareFoot": 4.15,
+			"materialCost": 1030586917.5,
+			"laborCost": 1221981630.75,
+			"tax": 140785534.265625,
+			"total": 2393354082.515625
+		},
+		{
+			"orderNumber": 2,
+			"customerName": "laksfjlaskdjfa",
+			"state": "OH",
+			"taxRate": 6.25,
+			"productType": "Tile",
+			"area": 123,
+			"costPerSquareFoot": 3.5,
+			"laborCostPerSquareFoot": 4.15,
+			"materialCost": 430.5,
+			"laborCost": 510.45000000000005,
+			"tax": 58.809375,
+			"total": 999.7593750000001
+		}
+	],
+	"Date": "12122020",
+	"MaxOrderNumber": 2
+}

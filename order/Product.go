@@ -30,7 +30,7 @@ func (p *Products) Populate() {
 	json.Unmarshal(byteValue, p)
 }
 
-func (p *Products) getProductData(productType string) (float64, float64) {
+func (p *Products) GetProductData(productType string) (float64, float64) {
 	for _, v := range p.Products {
 		if v.ProductType == productType {
 			return v.CostPerSquareFoot, v.LaborCostPerSquareFoot

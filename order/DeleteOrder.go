@@ -1,15 +1,12 @@
 package order
 
-
 import (
 	"fmt"
 )
 
+func (o *Orders) DeleteOrder(ordNum int) error {
 
-
-func(o *Orders) DeleteOrder(ordNum int) error{
-
-	foundIndx := o.findOrderIndex(ordNum) 
+	foundIndx := o.FindOrderIndex(ordNum)
 	if foundIndx != -1 {
 		lastIndx := len(o.Orders) - 1
 		if lastIndx == 0 { //if only one order

@@ -14,14 +14,6 @@ const (
 	dayPattern   = "^[0-3][0-9]$"
 )
 
-func getInput(prompt string) string {
-	var input string
-	fmt.Print(prompt + " ")
-	fmt.Scanln(&input)
-
-	return input
-}
-
 type verify func(string) bool
 
 func verifyYear(year string) bool {
@@ -70,6 +62,8 @@ func getDateInput() (string, string, string) {
 
 	return year, month, day
 }
+
+// GetDate somethin
 func GetDate() string {
 	fmt.Println()
 	fmt.Println("Please enter date units below")

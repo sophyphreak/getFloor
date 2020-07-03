@@ -4,8 +4,8 @@ package order
 func (o *Orders) AddOrder(newOrder Order, t *Taxes, p *Products) {
 	o.MaxOrderNumber++
 	newOrder.OrderNumber = o.MaxOrderNumber
-	newOrder.TaxRate = t.getTaxRate(newOrder.State)
-	cost, laborCost := p.getProductData(newOrder.ProductType)
+	newOrder.TaxRate = t.GetTaxRate(newOrder.State)
+	cost, laborCost := p.GetProductData(newOrder.ProductType)
 	newOrder.CostPerSquareFoot = cost
 	newOrder.LaborCostPerSquareFoot = laborCost
 	newOrder.MaterialCost = newOrder.Area * newOrder.CostPerSquareFoot

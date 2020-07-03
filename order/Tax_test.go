@@ -5,7 +5,7 @@ import "testing"
 func TestGetTaxRate(t *testing.T) {
 	var taxes Taxes
 	taxes.Populate()
-	taxRate := taxes.getTaxRate("OH")
+	taxRate := taxes.GetTaxRate("OH")
 	if taxRate != 6.25 {
 		t.Errorf("Expected taxRate of %f but instead received %f", 6.25, taxRate)
 	}

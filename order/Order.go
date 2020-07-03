@@ -54,9 +54,8 @@ func (o *Orders) Populate(date string) {
 	o.MaxOrderNumber = max
 }
 
-//find order by OrderNumber
-func (o *Orders) findOrderIndex(ordNum int) int {
-
+// FindOrderIndex by OrderNumber
+func (o *Orders) FindOrderIndex(ordNum int) int {
 	for indx, ord := range o.Orders {
 		if ord.OrderNumber == ordNum {
 			return indx
@@ -64,20 +63,3 @@ func (o *Orders) findOrderIndex(ordNum int) int {
 	}
 	return -1
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

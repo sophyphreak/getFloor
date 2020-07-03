@@ -9,10 +9,10 @@ func (o *Orders) Display() error {
 		fmt.Println(ord.CustomerName)
 		fmt.Println(ord.State)
 		fmt.Println("Product:", ord.ProductType)
-		fmt.Println("Materials:", ord.MaterialCost)
-		fmt.Println("Labor:", ord.LaborCost)
-		fmt.Println("Tax:", ord.Tax)
-		fmt.Println("Total", ord.Total)
+		fmt.Printf("Materials: %.2f\n", ord.MaterialCost)
+		fmt.Printf("Labor: %.2f\n", ord.LaborCost)
+		fmt.Printf("Tax: %.2f\n", ord.Tax)
+		fmt.Printf("Total: %.2f\n\n", ord.Total)
 	}
 	if len(o.Orders) == 0 {
 		return fmt.Errorf("That date does not have any orders")

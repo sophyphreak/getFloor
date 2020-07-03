@@ -14,7 +14,7 @@ func TestPopulateProduct(t *testing.T) {
 func TestGetProductData(t *testing.T) {
 	var p Products
 	p.Populate()
-	costPerSquareFoot, laborCostPerSquareFoot := p.getProductData("Tile")
+	costPerSquareFoot, laborCostPerSquareFoot := p.GetProductData("Tile")
 	if costPerSquareFoot != 3.50 {
 		t.Errorf("Expected costPerSquareFoot to equal %f but instead received %f", 3.50, costPerSquareFoot)
 	}

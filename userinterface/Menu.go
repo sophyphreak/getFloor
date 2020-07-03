@@ -1,37 +1,39 @@
 package userinterface
 
 import (
-	"bufio"
 	"fmt"
 	"os"
+
+	"../order"
 )
 
+// Menu something
 func Menu() {
 	for {
 
-		var response string
-		in := bufio.NewReader(os.Stdin)
-
-		fmt.Println("Get Floored Program \n")
+		fmt.Println("Get Floored Program")
 		fmt.Println("1. Display Orders")
 		fmt.Println("2. Add an Order")
 		fmt.Println("3. Edit an Order")
 		fmt.Println("4. Remove an Order")
-		fmt.Println("5. Quit\n")
+		fmt.Println("5. Quit")
 
-		fmt.Print("Select a number 1-5: ")
-		response, _ = in.ReadString('\n')
+		prompt := "Select a number 1-5:"
 
-		switch response {
-
+		var t order.Taxes
+		var p order.Products
+		t.Populate()
+		p.Populate()
+		userInput := getInput(prompt)
+		switch userInput {
 		case "1":
-			// stuff
+			displayOrderInput()
 		case "2":
-			// More stuff
+			addOrderInput(&t, &p)
 		case "3":
-			// Even more stuff
+			editOrderInput(&t, &p)
 		case "4":
-
+			deleteOrderInput()
 		case "5":
 			fmt.Println("Thank you for coming sir")
 			os.Exit(1)

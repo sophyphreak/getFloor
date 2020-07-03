@@ -1,0 +1,34 @@
+{
+	"orders": [
+		{
+			"orderNumber": 2,
+			"customerName": "aaksdljfas",
+			"state": "OH",
+			"taxRate": 6.25,
+			"productType": "Wood",
+			"area": 2394,
+			"costPerSquareFoot": 5.15,
+			"laborCostPerSquareFoot": 4.75,
+			"materialCost": 12329.1,
+			"laborCost": 11371.5,
+			"tax": 1481.2875,
+			"total": 25181.887499999997
+		},
+		{
+			"orderNumber": 3,
+			"customerName": "laskfdjas",
+			"state": "OH",
+			"taxRate": 6.25,
+			"productType": "Wood",
+			"area": 92458304,
+			"costPerSquareFoot": 5.15,
+			"laborCostPerSquareFoot": 4.75,
+			"materialCost": 476160265.6,
+			"laborCost": 439176944,
+			"tax": 57208575.6,
+			"total": 972545785.2
+		}
+	],
+	"Date": "11112020",
+	"MaxOrderNumber": 3
+}

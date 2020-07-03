@@ -78,7 +78,7 @@ func TestFindOrderIndex(t *testing.T) {
 	var o Orders
 	o.Populate("07032020")
 
-	indx := o.findOrderIndex(1)
+	indx := o.FindOrderIndex(1)
 
 	if indx == -1 {
 		t.Errorf("Got indx -1, but expected 1")
