@@ -6,13 +6,13 @@
 			"state": "OH",
 			"taxRate": 6.25,
 			"productType": "Wood",
-			"area": 500,
+			"area": 100,
 			"costPerSquareFoot": 5.15,
 			"laborCostPerSquareFoot": 4.75,
-			"materialCost": 2575,
-			"laborCost": 2375,
-			"tax": 309.375,
-			"total": 5259.375
+			"materialCost": 515,
+			"laborCost": 475,
+			"tax": 61.875,
+			"total": 1051.875
 		}
 	],
 	"Date": "07032020",
